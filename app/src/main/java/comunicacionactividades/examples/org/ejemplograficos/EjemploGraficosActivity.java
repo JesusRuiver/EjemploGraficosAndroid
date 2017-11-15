@@ -24,6 +24,24 @@ public class EjemploGraficosActivity extends AppCompatActivity {
         }
 
         private void dibujarFigura(int numeroLado, int ancho, Canvas canvas) {
+            int xi, yi, xf, yf;
+
+            xf = canvas.getWidth() / 2;
+            yf = canvas.getHeight() / 2;
+
+            yi = yf;
+            xi = xf - ancho / 2;
+
+            Paint pincel = new Paint();
+            pincel.setColor(Color.BLUE);
+            pincel.setStrokeWidth(8);
+            pincel.setStyle(Paint.Style.STROKE);
+
+            xf = xi +10;
+            yf = yi;
+
+            canvas.drawLine(xi,yi,xf,xf, pincel);
+
 
 
         }
@@ -31,26 +49,30 @@ public class EjemploGraficosActivity extends AppCompatActivity {
         @Override
         protected void onDraw(Canvas canvas) {
             Path trazo = new Path();
-            trazo.addCircle(150,150,100, Path.Direction.CCW);
+            //trazo.addCircle(getWidth()/2, getHeight()/2, 100, Path.Direction.CCW);
+            trazo.moveTo(50,100);
+            trazo.cubicTo(60,70,150,90,200,110);
+            trazo.lineTo(300,200);
+
 
             Paint pincel = new Paint();
             pincel.setColor(Color.BLUE);
             pincel.setStrokeWidth(8);
             pincel.setStyle(Paint.Style.STROKE);
             //canvas.drawCircle(150, 150, 100, pincel);
-            canvas.drawPath(trazo,pincel);
+            canvas.drawPath(trazo, pincel);
 
             pincel.setStrokeWidth(1);
             pincel.setStyle(Paint.Style.FILL);
             pincel.setTextSize(20);
             pincel.setTypeface(Typeface.SANS_SERIF);
-            canvas.drawTextOnPath("Desarrollo de aplicaciones para moviles con Android", trazo,10,40,pincel);
+            canvas.drawTextOnPath("Desarrollo de aplicaciones para moviles con Android", trazo, 10, 40, pincel);
 
 
             Paint pincelRojo = new Paint(); //Mejor generar dos pinceles en vez de uno
             pincelRojo.setColor(Color.RED);
 
-            canvas.drawCircle(75, 75, 50, pincelRojo);
+            canvas.drawCircle(canvas.getWidth()/2, canvas.getHeight()/2, 50, pincelRojo);
 
 
             //pincel.setColor(Color.argb(127,255,0,0));
