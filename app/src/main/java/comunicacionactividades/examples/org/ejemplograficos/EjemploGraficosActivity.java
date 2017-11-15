@@ -5,6 +5,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
+import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -38,6 +39,13 @@ public class EjemploGraficosActivity extends AppCompatActivity {
             pincel.setStyle(Paint.Style.STROKE);
             //canvas.drawCircle(150, 150, 100, pincel);
             canvas.drawPath(trazo,pincel);
+
+            pincel.setStrokeWidth(1);
+            pincel.setStyle(Paint.Style.FILL);
+            pincel.setTextSize(20);
+            pincel.setTypeface(Typeface.SANS_SERIF);
+            canvas.drawTextOnPath("Desarrollo de aplicaciones para moviles con Android", trazo,10,40,pincel);
+
 
             Paint pincelRojo = new Paint(); //Mejor generar dos pinceles en vez de uno
             pincelRojo.setColor(Color.RED);
