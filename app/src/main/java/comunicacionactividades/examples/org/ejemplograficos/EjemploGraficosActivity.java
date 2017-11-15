@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Path;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -23,17 +24,20 @@ public class EjemploGraficosActivity extends AppCompatActivity {
 
         private void dibujarFigura(int numeroLado, int ancho, Canvas canvas) {
 
-            
+
         }
 
         @Override
         protected void onDraw(Canvas canvas) {
+            Path trazo = new Path();
+            trazo.addCircle(150,150,100, Path.Direction.CCW);
+
             Paint pincel = new Paint();
             pincel.setColor(Color.BLUE);
             pincel.setStrokeWidth(8);
             pincel.setStyle(Paint.Style.STROKE);
-            canvas.drawCircle(150, 150, 100, pincel);
-
+            //canvas.drawCircle(150, 150, 100, pincel);
+            canvas.drawPath(trazo,pincel);
 
             Paint pincelRojo = new Paint(); //Mejor generar dos pinceles en vez de uno
             pincelRojo.setColor(Color.RED);
@@ -43,8 +47,8 @@ public class EjemploGraficosActivity extends AppCompatActivity {
 
             //pincel.setColor(Color.argb(127,255,0,0));
             //pincel.setColor(0x7FFF0000);
-            pincel.setColor(getResources().getColor(R.color.color_circulo));
-            canvas.drawCircle(150, 250, 100, pincel);
+            /*pincel.setColor(getResources().getColor(R.color.color_circulo));
+            canvas.drawCircle(150, 250, 100, pincel);*/
 
 
         }
