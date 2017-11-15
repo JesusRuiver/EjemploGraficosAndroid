@@ -46,6 +46,21 @@ public class EjemploGraficosActivity extends AppCompatActivity {
 
         }
 
+        private void dibujaFigura2 (Canvas canvas){
+            Paint pincel = new Paint();
+            Path trazo = new Path();
+
+            trazo.moveTo(50,100);
+            trazo.lineTo(100,100);
+            trazo.lineTo(100,200);
+            trazo.lineTo(200,200);
+            trazo.lineTo(200,100);
+            trazo.lineTo(100,100);
+
+            canvas.drawColor(Color.BLUE);
+            canvas.drawPath(trazo,pincel);
+        }
+
         @Override
         protected void onDraw(Canvas canvas) {
             Path trazo = new Path();
